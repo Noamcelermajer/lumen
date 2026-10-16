@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lumen">
+<title>Lumen</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#/" aria-label="Lumen home"><span class="brand-mark"></span><span class="brand-name">Lumen</span></a>
+    <nav class="segments" id="segments" aria-label="Browse">
+      <a href="#/" data-type="all">Home</a>
+      <a href="#/movie" data-type="movie">Movies</a>
+      <a href="#/series" data-type="series">Series</a>
+      <a href="#/anime" data-type="anime">Anime</a>
+    </nav>
+    <button class="search-trigger" id="searchBtn" type="button" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <span>Search</span>
+      <kbd>/</kbd>
+    </button>
+  </div>
+</header>
+
+<main id="app" class="app"></main>
+
+<!-- Search -->
+<div class="search" id="search" hidden role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-bg" data-close></div>
+  <div class="search-panel">
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="Search movies, series and anime" autocomplete="off" spellcheck="false" aria-label="Search">
+      <button class="esc" type="button" data-close>Esc</button>
+    </div>
+    <div class="search-filters" id="searchFilters">
+      <button class="chip chip-sm on" data-type="all">All</button>
+      <button class="chip chip-sm" data-type="movie">Movies</button>
+      <button class="chip chip-sm" data-type="series">Series</button>
+      <button class="chip chip-sm" data-type="anime">Anime</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div>
+  </div>
+</div>
+
+<!-- Trailer -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="Trailer">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-inner">
+    <button class="modal-close" type="button" data-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-box" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>
